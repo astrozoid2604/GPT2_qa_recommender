@@ -180,3 +180,23 @@ training_args = TrainingArguments(output_dir                 =    train_dir,
 - As can be seen in training loss plot below, the loss decreases as the number of training iterations increase.
 ![TensorBoard_chart_setting2a](TensorBoard_chart_setting2a.JPG)
 ![TensorBoard_chart_setting2b](TensorBoard_chart_setting2b.JPG)
+
+---
+
+# Evaluation on Fine-tuned GPT-2
+
+- Evaluation Framework: 
+    - Models Tested: Two fine-tuned GPT-2 models with different settings and a baseline GPT-2 model for comparison
+    - Text Generation Approach: Generate Responses to a preset prompt using the model
+        - Implementation of a text generation function accommodating maximum length and new token limits.
+        - Introduction of an attention mask to focus the model’s generation capabilities.
+    - Evaluation Metrics: Compare generated responses against a reference answer to compute evaluation metrics.
+
+| Evaluation Metrics | Description                                                                                               |
+|:------------------:|:----------------------------------------------------------------------------------------------------------|
+| Perplexity         | Measures how well the model predicts the sample.                                                          |
+| BLEU Score         | Measures similarity between generated and ground-truth text.                                              |
+| ROUGE Score        | Measures overlap of n-grams, word sequences, and word pairs between the generated and ground-truth texts. |
+| METEOR Score       | Assesses synonymy and stemming between generated and ground-truth texts for a more nuanced comparison.    |
+ 
+- Tools & Libraries Used: PyTorch, HuggingFace’s Transformers, NLTK & rouge-score libraries.
